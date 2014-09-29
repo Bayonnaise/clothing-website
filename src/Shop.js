@@ -1,5 +1,6 @@
 function Shop() {
 	this.inventory = this.fillInventory();
+	this.basket = new Basket();
 };
 
 Shop.prototype.fillInventory = function() {
@@ -27,3 +28,26 @@ Shop.prototype.PRODUCTS = "Almond Toe Court Shoes, Patent Black - Women’s Foot
 													"Bird Print Dress, Black - Women’s Formalwear - £270.00 - 10\n" + 
 													"Mid Twist Cut-Out Dress, Pink - Women’s Formalwear - £540.00 - 5";
 
+Shop.prototype.getIndex = function(name) {
+	var result;
+	this.inventory.forEach(function(product, index) {
+		if(product.name === name) {
+			result = index;
+			return false;
+		};
+	});
+	return result;
+};
+
+Shop.prototype.addToBasket = function(product) {
+	var index = this.getIndex(product.name);
+	if (this.inventory[index].removeOne()) {
+		this.basket.addProduct(product);
+	};
+};
+
+Shop.prototype.removeFromBasket = function(name) {
+	var index = this.getIndex(name);
+	this.basket.removeProduct(this.inventory[index]);
+	this.inventory[index].addOne();
+}

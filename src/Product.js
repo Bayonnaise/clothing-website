@@ -6,7 +6,12 @@ function Product(name, category, price, quantity) {
 };
 
 Product.prototype.removeOne = function() {
-	if (this.inStock()) this.quantity -= 1;
+	if (this.inStock()) {
+		this.quantity -= 1;
+		return true;
+	} else {
+		return false;
+	};
 };
 
 Product.prototype.addOne = function() {

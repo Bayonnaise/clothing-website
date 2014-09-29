@@ -31,7 +31,7 @@ describe("A product", function() {
 
     it("cannot have its quantity decreased below zero", function() {
       product.quantity = 0;
-      product.removeOne();
+      expect(product.removeOne()).toBe(false);
       expect(product.quantity).toEqual(0);
     });
 
