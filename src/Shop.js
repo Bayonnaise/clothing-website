@@ -3,6 +3,30 @@ function Shop() {
 	this.basket = new Basket();
 };
 
+Shop.prototype.getIndex = function(name) {
+	var result;
+	this.inventory.forEach(function(product, index) {
+		if(product.name === name) {
+			result = index;
+			return false;
+		};
+	});
+	return result;
+};
+
+Shop.prototype.addToBasket = function(product) {
+	var index = this.getIndex(product.name);
+	if (this.inventory[index].removeOne()) {
+		this.basket.addProduct(product);
+	};
+};
+
+Shop.prototype.removeFromBasket = function(name) {
+	var index = this.getIndex(name);
+	this.basket.removeProduct(this.inventory[index]);
+	this.inventory[index].addOne();
+}
+
 Shop.prototype.fillInventory = function() {
 	var list = [];
 	var lines = this.PRODUCTS.split("\n"[0]);
@@ -27,27 +51,3 @@ Shop.prototype.PRODUCTS = "Almond Toe Court Shoes, Patent Black - Women’s Foot
 													"Lightweight Patch Pocket Blazer, Deer - Men’s Formalwear - £175.50 - 1\n" +
 													"Bird Print Dress, Black - Women’s Formalwear - £270.00 - 10\n" + 
 													"Mid Twist Cut-Out Dress, Pink - Women’s Formalwear - £540.00 - 5";
-
-Shop.prototype.getIndex = function(name) {
-	var result;
-	this.inventory.forEach(function(product, index) {
-		if(product.name === name) {
-			result = index;
-			return false;
-		};
-	});
-	return result;
-};
-
-Shop.prototype.addToBasket = function(product) {
-	var index = this.getIndex(product.name);
-	if (this.inventory[index].removeOne()) {
-		this.basket.addProduct(product);
-	};
-};
-
-Shop.prototype.removeFromBasket = function(name) {
-	var index = this.getIndex(name);
-	this.basket.removeProduct(this.inventory[index]);
-	this.inventory[index].addOne();
-}

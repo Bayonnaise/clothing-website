@@ -9,11 +9,13 @@
 
   <title>Clothing website</title>
 
-  <script src="lib/bootstrap.min.js"></script>
   <script src='http://code.jquery.com/jquery-2.1.1.min.js'></script>
+  <script src="lib/bootstrap.min.js"></script>
   <script type="text/javascript" src="src/Product.js"></script>
   <script type="text/javascript" src="src/Shop.js"></script>
   <script type="text/javascript" src="src/Basket.js"></script>
+  <script type="text/javascript" src="src/Initializer.js"></script>
+  <script type="text/javascript" src="src/Scripts.js"></script>
 </head>
 <body>
 	<nav class="navbar navbar-default" role="navigation">
@@ -24,13 +26,13 @@
 
 	<article class="container">
 		<section id="product-section" class="col-xs-9">
-			<ul class="container-fluid row">
-				
-			</ul>
+			<ul id="inventory-list" class="container-fluid row"></ul>
 		</section>
 
 		<aside id="basket" class="col-xs-3">
-			
+			<h2>Basket</h2>
+			<ul id="basket-list"></ul>
+			<span id='basket_count'>0</span> items, £<span id='basket_value'>0.00</span>
 		</aside>
 	</article>
 </body>
