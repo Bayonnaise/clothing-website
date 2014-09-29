@@ -1,0 +1,23 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+ul {
+	list-style-type: none;
+	-webkit-padding-start: 0;
+}
+
+#product-section {
+
+}
+
+.product-box {
+	padding: 5px;
+}
+
+#basket {
+	background-color: pink;
+}
