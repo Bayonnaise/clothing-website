@@ -12,11 +12,11 @@ Basket.prototype.removeProduct = function(product) {
 };
 
 Basket.prototype.totalValue = function() {
-	return this.products.reduce(addValue, 0);
-
-	function addValue(sum, item) {
-	    return sum + item.price;
-	}
+	var total = 0;
+	this.products.forEach(function(product) {
+		total += product.price;
+	});
+	return total;
 };
 
 Basket.prototype.itemCount = function() {

@@ -14,9 +14,9 @@
   <script type="text/javascript" src="src/Product.js"></script>
   <script type="text/javascript" src="src/Shop.js"></script>
   <script type="text/javascript" src="src/Basket.js"></script>
-  <script type="text/javascript" src="src/Initializer.js"></script>
   <script type="text/javascript" src="src/Scripts.js"></script>
 </head>
+
 <body>
 	<nav class="navbar navbar-default" role="navigation">
 		<div class="container-fluid">
@@ -29,10 +29,12 @@
 			<ul id="inventory-list" class="container-fluid row"></ul>
 		</section>
 
-		<aside id="basket" class="col-xs-3">
-			<h2>Basket</h2>
+		<aside id="basket" class="col-xs-3 panel panel-default">
+			<h2 class='panel-heading'>Basket</h2>
 			<ul id="basket-list"></ul>
-			<span id='basket_count'>0</span> items, £<span id='basket_value'>0.00</span>
+			<div id='basket-footer' class='panel-footer'>
+				<span id='basket-count'>0</span> items, £<span id='basket-value'>0</span>
+			</div>
 		</aside>
 	</article>
 </body>

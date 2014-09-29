@@ -19,5 +19,18 @@ ul {
 }
 
 #basket {
-	background-color: pink;
+	padding: 0px;
+}
+
+	#basket h2 {
+		margin-top: 0px;
+	}
+
+	#basket li {
+		padding: 0px 10px;
+		margin-bottom: 5px;
+	}
+
+#basket-footer {
+	padding: 10px;
 }
