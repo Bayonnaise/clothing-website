@@ -1,4 +1,4 @@
-#Clothes shop website
+#Clothing website
 **Technical test**
 
 ###Objectives
@@ -70,7 +70,7 @@ You have two options.
 
 [Download the full repo as a zip file.](https://github.com/Bayonnaise/clothing-website/archive/master.zip)
 
-**B: Clone the repo
+**B: Clone the repo**
 
 ```shell
 git clone https://github.com/Bayonnaise/clothing-website.git
@@ -80,4 +80,5 @@ cd clothing-website
 ###How to run
 
 Open `index.html` to run the website.
+
 Open `SpecRunner.html` to run the tests.
