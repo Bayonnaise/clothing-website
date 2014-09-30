@@ -26,7 +26,7 @@ The user stories are as follows:
 
 The project is built in JavaScript and HTML, with the product database mocked out into a constant. Sending items to and from the basket is done using JQuery to avoid reloading the page, and all totals and quantities update immediately. 
 
-When you enter a valid voucher code it's added to the basket, but the discount is only applied when the conditions are met. If you remove products until the total value no longer meets a voucher condition, the discount is removed - but the voucher remains applied, and if you add more products that discount will reappear.
+When you enter a valid voucher code it's added to the basket, but the discount is only applied when the conditions are met. If removing an item means those conditions are no longer met, the discount will be removed, but the voucher remains in place. Just add more items to see the discount return.
 
 I implemented the following classes:
 - `Product.js` contains the product name, price, category and quantity.
