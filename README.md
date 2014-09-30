@@ -20,6 +20,8 @@ The user stories are as follows:
 - As a User I am alerted when I apply an invalid voucher to my shopping cart.
 - As a User I am unable to Out of Stock products to the shopping cart.
 
+---
+
 ###Development
 
 The project is built in JavaScript and HTML, with the product database mocked out into a constant. Sending items to and from the basket is done using JQuery to avoid reloading the page, and all totals and quantities update immediately. 
@@ -61,6 +63,8 @@ All of the JavaScript files are in the `src` folder, with their corresponding Ja
     ├── Shop.js
     └── Voucher.js
 ```
+
+---
 
 ###How to set up
 
