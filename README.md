@@ -28,10 +28,17 @@ The project is built in JavaScript and HTML, with the product database mocked ou
 
 When you enter a valid voucher code it's added to the basket, but the discount is only applied when the conditions are met. If you remove products until the total value no longer meets a voucher condition, the discount is removed - but the voucher remains applied, and if you add more products that discount will reappear.
 
+I implemented the following classes:
+- `Product.js` contains the product name, price, category and quantity.
+- `Voucher.js` contains the discount amount, minimum spend and any other conditions.
+- `Basket.js` stores the added products, as well as the currently applied voucher, and can calculate its total value (with and without discount).
+- `Shop.js` stores the product inventory and adds and removes items from the basket.
+
 With more time I would implement:
 - filters for the product list
 - proper product images and a full database
 - better feedback when entering vouchers
+- the ability to apply multiple vouchers
 - a checkout button!
 
 ####Tools used
@@ -42,7 +49,7 @@ JavaScript, JQuery, Jasmine, Mustache, HTML, CSS and Twitter Bootstrap.
 
 The basic layout of the page sits in `index.html`, which also (for now at least) includes two Mustache templates for rendering the individual shop products and basket items. CSS and images are in the `public` folder.
 
-All of the JavaScript files are in the `src` folder, with their corresponding Jasmine tests inside `spec`.
+All of the JavaScript files are in the `src` folder, with their corresponding Jasmine tests inside `spec`. The JQuery scripts are all in `Scripts.js`.
 
 ```shell
 .
