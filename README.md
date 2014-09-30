@@ -28,6 +28,12 @@ The project is built in JavaScript and HTML, with the product database mocked ou
 
 When you enter a valid voucher code it's added to the basket, but the discount is only applied when the conditions are met. If you remove products until the total value no longer meets a voucher condition, the discount is removed - but the voucher remains applied, and if you add more products that discount will reappear.
 
+With more time I would implement:
+- filters for the product list
+- proper product images and a full database
+- better feedback when entering vouchers
+- a checkout button!
+
 ####Tools used
 
 JavaScript, JQuery, Jasmine, Mustache, HTML, CSS and Twitter Bootstrap.
@@ -81,8 +87,12 @@ git clone https://github.com/Bayonnaise/clothing-website.git
 cd clothing-website
 ```
 
+---
+
 ###How to run
 
 Open `index.html` to run the website.
+
+You can apply the three predefined vouchers using the codes `VOUCHER5`, `VOUCHER10` and `VOUCHER15`.
 
 Open `SpecRunner.html` to run the tests.
