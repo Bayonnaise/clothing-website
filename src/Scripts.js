@@ -33,7 +33,6 @@ function refresh(shop) {
 	updateBasket(shop.basket);
 };
 
-
 function updateInventory(products) {
 	$('#inventory-list').empty();
 
@@ -52,7 +51,6 @@ function updateInventory(products) {
 	});
 };
 
-
 function updateBasket(basket) {
 	$('#basket-list').empty();
 	$('#basket-count').text(basket.itemCount());
@@ -65,7 +63,6 @@ function updateBasket(basket) {
 		var template = $('#basket-item-template').html();
 		Mustache.parse(template);
 		var item = Mustache.render(template, product);
-
 		$(item).appendTo($('#basket-list'));
 	});
 
