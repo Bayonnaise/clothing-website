@@ -1,4 +1,4 @@
-#Clothing website
+#Clothing website [![Code Climate](https://codeclimate.com/github/Bayonnaise/clothing-website/badges/gpa.svg)](https://codeclimate.com/github/Bayonnaise/clothing-website)
 **Technical test**
 
 ###Objectives
