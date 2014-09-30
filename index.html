@@ -32,26 +32,38 @@
 	<article class="container">
 		
 		<section id="product-section" class="col-xs-9">
-			<ul id="inventory-list" class="container-fluid row"></ul>
+			<ul id="inventory-list" class="container-fluid row list-unstyled"></ul>
 		</section>
 
 		<aside id="basket" class="col-xs-3 panel panel-default">
+
 			<h2 class='panel-heading'>Basket</h2>
-			<ul id="basket-list"></ul>
-			<div id='basket-footer' class='panel-footer'>
-				<span id='basket-count'>0</span> items, £<span id='basket-value'>0</span> <span id='discount-text' class='hidden'>(£<span id='discount-value'></span> off)</span>
-				<div id='voucher-area'>
-					<input id='voucher-box' type='text' name='voucher' placeholder='Enter code...'>
-					<button>Apply discount</button>
-				</div>
+			
+			<div id='basket-body'>
+				<table id="basket-list" class="list-unstyled"></table>
 			</div>
+			
+			<div id='basket-footer' class='panel-footer'>
+				<div id='basket-info'>
+					<h4><span id='basket-count'>0</span> items, £<span id='basket-value'>0</span> <span id='discount-text' class='hidden'>(£<span id='discount-value'></span> off)</span></h4>
+				</div>
+				
+				<form id='voucher-area' class='form-inline'>
+					<div class='form-group'>
+						<input id='voucher-box' class='form-control' type='text' name='voucher' placeholder='Enter voucher code...'>
+					</div>
+					<button class='btn btn-default'>Apply</button>
+
+				</form>
+			</div>
+
 		</aside>
 
 	</article>
 
 
 	<script id='product-template' type='x-tmpl-mustache'>
-		<li class="text-center">
+		<li class="text-center product-box col-xs-12 col-sm-6 col-md-4 panel panel-default">
 			<div class="product-image">
 				<img src="public/images/men-footwear.jpeg">
 			</div>
@@ -65,6 +77,23 @@
 				<h5><small>{{category}}</small></h5>
 			</div>
 	</script>
+
+	<script id='basket-item-template' type='x-tmpl-mustache'>
+		<tr>
+			<td>
+				{{name}}
+			</td>
+			<td class="text-right">
+				£{{price}}
+			</td>
+			<td>
+				<a href="" class="remove-from-basket" data-pick="{{index}}">
+					<span class="glyphicon glyphicon-remove"></span>
+				</a>
+			</td>
+		</tr>
+	</script>
+
 
 </body>
 </html>

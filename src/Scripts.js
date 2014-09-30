@@ -3,21 +3,24 @@ $(document).ready(function() {
 	var shop = new Shop();
 	refresh(shop);
 
-	$('#inventory-list').on('click', 'a.add-to-basket', function() {
+	$('#inventory-list').on('click', 'a.add-to-basket', function(event) {
+		event.preventDefault();
 		var index = $(this).data('pick');
 
 		shop.addToBasket(shop.inventory[index]);
 		refresh(shop);
 	});
 
-	$('#basket-list').on('click', 'a.remove-from-basket', function() {
+	$('#basket-list').on('click', 'a.remove-from-basket', function(event) {
+		event.preventDefault();
 		var index = $(this).data('pick');
 		
 		shop.removeFromBasket(shop.basket.products[index].name);
 		refresh(shop);
 	});
 
-	$('#voucher-area').on('click', 'button', function() {
+	$('#voucher-area').on('click', 'button', function(event) {
+		event.preventDefault();
 		shop.basket.applyVoucher($('#voucher-box').val());
 		$('#voucher-box').val("");
 		updateBasket(shop.basket);
@@ -45,7 +48,7 @@ function updateInventory(products) {
 			item += '<div>Out of stock</div></li>';
 		};
 
-		$(item).appendTo($('#inventory-list')).addClass('product-box col-xs-12 col-sm-6 col-md-4 panel panel-default');
+		$(item).appendTo($('#inventory-list'));
 	});
 };
 
@@ -56,16 +59,15 @@ function updateBasket(basket) {
 	$('#basket-value').removeClass('discounted').text(basket.totalValue());
 	$('#discount-value').text(basket.discountAmount());
 	$('#discount-text').addClass('hidden');
+	
+	basket.products.forEach(function(product, index) {
+		product.index = index;
+		var template = $('#basket-item-template').html();
+		Mustache.parse(template);
+		var item = Mustache.render(template, product);
 
-	if (basket.itemCount() > 0) {
-		basket.products.forEach(function(item, index) {
-			var item = '<li>' + item.name + ', £' + item.price + ' (<a href="" class="remove-from-basket" data-pick="' + index + '">Remove</a>)</li>';
-			$(item).appendTo($('#basket-list'));
-		});
-	} else {
-		var item = '<li>Empty</li>';
 		$(item).appendTo($('#basket-list'));
-	};
+	});
 
 	if(basket.discountAmount() > 0 && basket.totalValue() > basket.discountAmount()) {
 		$('#basket-value').addClass('discounted').text(basket.discountedValue());
