@@ -62,18 +62,22 @@ All of the JavaScript files are in the `src` folder, with their corresponding Ja
     └── Voucher.js
 ```
 
+###How to set up
+
+You have two options.
+
+**A: Download the repo**
+
+[Download the full repo as a zip file.](https://github.com/Bayonnaise/clothing-website/archive/master.zip)
+
+**B: Clone the repo
+
+```shell
+git clone https://github.com/Bayonnaise/clothing-website.git
+cd clothing-website
+```
+
 ###How to run
 
-```shell
-git clone https://github.com/Bayonnaise/clothing-website.git
-cd clothing-website
-open index.html
-```
-
-###How to run tests
-
-```shell
-git clone https://github.com/Bayonnaise/clothing-website.git
-cd clothing-website
-open SpecRunner.html
-```
+Open `index.html` to run the website.
+Open `SpecRunner.html` to run the tests.
