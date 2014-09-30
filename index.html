@@ -47,19 +47,20 @@
 
 
 	<script id='product-template' type='x-tmpl-mustache'>
-		<li class="text-center product-box col-xs-12 col-sm-6 col-md-4 panel panel-default">
-			<div class="product-image">
-				<img src="public/images/men-footwear.jpeg">
-			</div>
-			<div class="product-name">
-				<h4>{{name}}</h4>
-			</div>
-			<div class="product-price-quantity">
-				<h5>Price: £{{price}}, Stock: {{quantity}}</h5>
-			</div>
-			<div class="product-category">
-				<h5><small>{{category}}</small></h5>
-			</div>
+		<li class="text-center product-box col-xs-12 col-sm-6 col-md-4">
+			<div class="panel panel-default">
+				<div class="product-name panel-heading">
+					<h4 class='panel-title'>{{name}}</h4>
+				</div>
+				<div class="product-image">
+					<img src="public/images/men-footwear.jpeg">
+				</div>
+				<div class="product-price-quantity">
+					<h5>Price: £{{price}}, Stock: {{quantity}}</h5>
+				</div>
+				<div class="product-category">
+					<h5><small>{{category}}</small></h5>
+				</div>
 	</script>
 
 	<script id='basket-item-template' type='x-tmpl-mustache'>

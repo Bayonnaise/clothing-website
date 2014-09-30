@@ -42,9 +42,9 @@ function updateInventory(products) {
 		var item = Mustache.render(template, product);
 
 		if(product.inStock()) {
-			item += ("<div><h5><a href='#' class='add-to-basket' data-pick='" + index + "'>Add to Basket</a><h5></div></li>");
+			item += ("<div><h5><a href='#' class='add-to-basket' data-pick='" + index + "'>Add to Basket</a><h5></div></div></li>");
 		} else {
-			item += '<div>Out of stock</div></li>';
+			item += '<div>Out of stock</div></div></li>';
 		}
 
 		$(item).appendTo($('#inventory-list'));
@@ -53,11 +53,8 @@ function updateInventory(products) {
 
 function updateBasket(basket) {
 	$('#basket-list').empty();
-	$('#basket-count').text(basket.itemCount());
-	$('#basket-value').removeClass('discounted').text(basket.totalValue());
-	$('#discount-value').text(basket.discountAmount());
-	$('#discount-text').addClass('hidden');
-	
+	setValues(basket);
+
 	basket.products.forEach(function(product, index) {
 		product.index = index;
 		var template = $('#basket-item-template').html();
@@ -66,9 +63,19 @@ function updateBasket(basket) {
 		$(item).appendTo($('#basket-list'));
 	});
 
+	processDiscount(basket);
+}
+
+function setValues(basket) {
+	$('#basket-count').text(basket.itemCount());
+	$('#basket-value').text(basket.totalValue());
+	$('#discount-value').text(basket.discountAmount());
+	$('#discount-text').addClass('hidden');
+}
+
+function processDiscount(basket) {
 	if(basket.discountAmount() > 0 && basket.totalValue() > basket.discountAmount()) {
-		$('#basket-value').addClass('discounted').text(basket.discountedValue());
+		$('#basket-value').text(basket.discountedValue());
 		$('#discount-text').removeClass('hidden');
-		$('#discount-value').text(basket.discountAmount());
 	}
 }
