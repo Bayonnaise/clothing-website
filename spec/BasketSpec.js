@@ -33,9 +33,35 @@ describe("The basket", function () {
 			expect(basket.totalValue()).toEqual(84);
 		});
 
+		it('can return its total value with a discount applied', function() {
+			basket.products = [product, product];
+			basket.applyVoucher("VOUCHER15");
+			expect(basket.totalValue()).toEqual(69);
+		});
+
 		it('can return its product count', function() {
 			basket.products = [product, product];
 			expect(basket.itemCount()).toEqual(2);
+		});
+	});
+
+	describe('applying vouchers', function() {
+		it('can accept a £5 voucher code', function() {
+			basket.applyVoucher("VOUCHER5");
+			expect(basket.voucher.discount).toEqual(5);
+		});
+
+		it('can accept a voucher code with a minimum spend', function() {
+			basket.applyVoucher("VOUCHER10");
+			expect(basket.voucher.discount).toEqual(10);
+			expect(basket.voucher.minimumSpend).toEqual(50);
+		});
+
+		it('can accept a voucher code with a minimum spend and a condition', function() {
+			basket.applyVoucher("VOUCHER15");
+			expect(basket.voucher.discount).toEqual(15);
+			expect(basket.voucher.minimumSpend).toEqual(75);
+			expect(basket.voucher.condition).toEqual([1, "footwear"]);
 		});
 	});
 });
