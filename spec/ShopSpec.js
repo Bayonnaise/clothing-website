@@ -10,7 +10,7 @@ describe("The shop", function () {
 	describe("when initialized", function() {
 		it("reads in the file of products to build its stock", function() {
 			expect(shop.inventory.length).toEqual(13);
-			expect(shop.inventory[5].name).toEqual("Gold Button Cardigan"); 
+			expect(shop.inventory[5].name).toEqual("Gold Button Cardigan, Black"); 
 		});
 
 		it('has a basket', function() {
@@ -18,7 +18,7 @@ describe("The shop", function () {
 		});
 
 		it('can find a product by name', function() {
-			expect(shop.getIndex("Gold Button Cardigan")).toEqual(5);
+			expect(shop.getIndex("Gold Button Cardigan, Black")).toEqual(5);
 		});
 	});
 

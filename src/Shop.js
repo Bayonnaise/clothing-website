@@ -43,8 +43,8 @@ Shop.prototype.PRODUCTS = "Almond Toe Court Shoes, Patent Black - Women’s Foot
 													"Leather Driver Saddle Loafers, Tan - Men’s Footwear - £34.00 - 12\n" + 
 													"Flip Flops, Red - Men’s Footwear - £19.00 - 6\n" + 
 													"Flip Flops, Blue - Men’s Footwear - £19.00 - 0\n" + 
-													"Gold Button Cardigan - Black Women’s Casualwear - £167.00 - 6\n" +
-													"Cotton Shorts, Medium - Red Women’s Casualwear - £30.00 - 5\n" +
+													"Gold Button Cardigan, Black - Women’s Casualwear - £167.00 - 6\n" +
+													"Cotton Shorts, Medium, Red - Women’s Casualwear - £30.00 - 5\n" +
 													"Fine Stripe Short Sleeve Shirt, Grey - Men’s Casualwear - £49.99 - 9\n" + 
 													"Fine Stripe Short Sleeve Shirt, Green - Men’s Casualwear - £39.99 - 3\n" + 
 													"Sharkskin Waistcoat, Charcoal - Men’s Formalwear - £75.00 - 2\n" + 

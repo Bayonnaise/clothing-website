@@ -11,6 +11,7 @@
 
   <script src='http://code.jquery.com/jquery-2.1.1.min.js'></script>
   <script src="lib/bootstrap.min.js"></script>
+  <script src="lib/mustache.js"></script>
   <script type="text/javascript" src="src/Product.js"></script>
   <script type="text/javascript" src="src/Shop.js"></script>
   <script type="text/javascript" src="src/Basket.js"></script>
@@ -47,6 +48,23 @@
 		</aside>
 
 	</article>
+
+
+	<script id='product-template' type='x-tmpl-mustache'>
+		<li class="text-center">
+			<div class="product-image">
+				<img src="public/images/men-footwear.jpeg">
+			</div>
+			<div class="product-name">
+				<h4>{{name}}</h4>
+			</div>
+			<div class="product-price-quantity">
+				<h5>Price: £{{price}}, Stock: {{quantity}}</h5>
+			</div>
+			<div class="product-category">
+				<h5><small>{{category}}</small></h5>
+			</div>
+	</script>
 
 </body>
 </html>

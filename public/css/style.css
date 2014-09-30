@@ -10,12 +10,29 @@ ul {
 	-webkit-padding-start: 0;
 }
 
+
 #product-section {
 
 }
 
+#product-box li {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.product-image {
+	padding: 0 25px;
+}
+
+.product-image img{
+	max-height: 100%;
+	max-width: 100%;
+}
+
 .product-box {
 	padding: 5px;
+	height: 350px;
 }
 
 #basket {

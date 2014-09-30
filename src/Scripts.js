@@ -35,23 +35,18 @@ function updateInventory(products) {
 	$('#inventory-list').empty();
 
 	products.forEach(function(product, index) {
-		var item = buildString(product);
+		var template = $('#product-template').html();
+		Mustache.parse(template);
+		var item = Mustache.render(template, product);
 
 		if(product.inStock()) {
-			item += ("<div><a href='#' class='add-to-basket' data-pick='" + index + "'>Add to Basket</a></div>");
+			item += ("<div><h5><a href='#' class='add-to-basket' data-pick='" + index + "'>Add to Basket</a><h5></div></li>");
 		} else {
-			item += '<div>Out of stock</div>';
+			item += '<div>Out of stock</div></li>';
 		};
 
 		$(item).appendTo($('#inventory-list')).addClass('product-box col-xs-12 col-sm-6 col-md-4 panel panel-default');
 	});
-};
-
-function buildString(product) {
-	return '<li><div class="product-name">' + product.name + '</div>' + 
-	'<div>Price: £<span class="product-price">' + product.price + '</span>, ' +
-	'Stock: <span class="product-quantity">' + product.quantity + '</span></div>' +
-	'<div>Category: <span class="product-category">' + product.category + '</span></div>';
 };
 
 
@@ -64,7 +59,7 @@ function updateBasket(basket) {
 
 	if (basket.itemCount() > 0) {
 		basket.products.forEach(function(item, index) {
-			var item = '<li>' + item.name + ', £' + item.price + ' (<a href="#" class="remove-from-basket" data-pick="' + index + '">Remove</a>)</li>';
+			var item = '<li>' + item.name + ', £' + item.price + ' (<a href="" class="remove-from-basket" data-pick="' + index + '">Remove</a>)</li>';
 			$(item).appendTo($('#basket-list'));
 		});
 	} else {
