@@ -8,35 +8,22 @@
   <link rel="stylesheet" href="public/css/style.css">
 
   <title>Clothing website</title>
-
-  <script src='http://code.jquery.com/jquery-2.1.1.min.js'></script>
-  <script src="lib/bootstrap.min.js"></script>
-  <script src="lib/mustache.js"></script>
-  <script type="text/javascript" src="src/Product.js"></script>
-  <script type="text/javascript" src="src/Shop.js"></script>
-  <script type="text/javascript" src="src/Basket.js"></script>
-  <script type="text/javascript" src="src/Voucher.js"></script>
-  <script type="text/javascript" src="src/Scripts.js"></script>
 </head>
 
 <body>
 
-	<nav class="navbar navbar-default" role="navigation">
-		
+	<nav class="navbar navbar-default" role="navigation">		
 		<div class="container-fluid">
 			<h1 class="text-center">Clothing website</h1>
 		</div>
-	
 	</nav>
 
 	<article class="container">
-		
 		<section id="product-section" class="col-xs-9">
 			<ul id="inventory-list" class="container-fluid row list-unstyled"></ul>
 		</section>
 
 		<aside id="basket" class="col-xs-3 panel panel-default">
-
 			<h2 class='panel-heading'>Basket</h2>
 			
 			<div id='basket-body'>
@@ -53,12 +40,9 @@
 						<input id='voucher-box' class='form-control' type='text' name='voucher' placeholder='Enter voucher code...'>
 					</div>
 					<button class='btn btn-default'>Apply</button>
-
 				</form>
 			</div>
-
 		</aside>
-
 	</article>
 
 
@@ -80,12 +64,8 @@
 
 	<script id='basket-item-template' type='x-tmpl-mustache'>
 		<tr>
-			<td>
-				{{name}}
-			</td>
-			<td class="text-right">
-				£{{price}}
-			</td>
+			<td>{{name}}</td>
+			<td class="text-right">£{{price}}</td>
 			<td>
 				<a href="" class="remove-from-basket" data-pick="{{index}}">
 					<span class="glyphicon glyphicon-remove"></span>
@@ -94,6 +74,13 @@
 		</tr>
 	</script>
 
-
+	<script src='http://code.jquery.com/jquery-2.1.1.min.js'></script>
+  <script src="lib/bootstrap.min.js"></script>
+  <script src="lib/mustache.js"></script>
+  <script type="text/javascript" src="src/Product.js"></script>
+  <script type="text/javascript" src="src/Shop.js"></script>
+  <script type="text/javascript" src="src/Basket.js"></script>
+  <script type="text/javascript" src="src/Voucher.js"></script>
+  <script type="text/javascript" src="src/Scripts.js"></script>
 </body>
 </html>
