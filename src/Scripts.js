@@ -31,7 +31,7 @@ $(document).ready(function() {
 function refresh(shop) {
 	updateInventory(shop.inventory);
 	updateBasket(shop.basket);
-};
+}
 
 function updateInventory(products) {
 	$('#inventory-list').empty();
@@ -45,11 +45,11 @@ function updateInventory(products) {
 			item += ("<div><h5><a href='#' class='add-to-basket' data-pick='" + index + "'>Add to Basket</a><h5></div></li>");
 		} else {
 			item += '<div>Out of stock</div></li>';
-		};
+		}
 
 		$(item).appendTo($('#inventory-list'));
 	});
-};
+}
 
 function updateBasket(basket) {
 	$('#basket-list').empty();
@@ -70,5 +70,5 @@ function updateBasket(basket) {
 		$('#basket-value').addClass('discounted').text(basket.discountedValue());
 		$('#discount-text').removeClass('hidden');
 		$('#discount-value').text(basket.discountAmount());
-	};
-};
+	}
+}
