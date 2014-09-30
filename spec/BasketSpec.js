@@ -33,12 +33,6 @@ describe("The basket", function () {
 			expect(basket.totalValue()).toEqual(84);
 		});
 
-		it('can return its total value with a discount applied', function() {
-			basket.products = [product, product];
-			basket.applyVoucher("VOUCHER15");
-			expect(basket.totalValue()).toEqual(69);
-		});
-
 		it('can return its product count', function() {
 			basket.products = [product, product];
 			expect(basket.itemCount()).toEqual(2);
@@ -62,6 +56,20 @@ describe("The basket", function () {
 			expect(basket.voucher.discount).toEqual(15);
 			expect(basket.voucher.minimumSpend).toEqual(75);
 			expect(basket.voucher.condition).toEqual([1, "footwear"]);
+		});
+
+		it('can return its total value with a discount applied', function() {
+			basket.products = [product, product];
+			basket.applyVoucher("VOUCHER15");
+			expect(basket.totalValue()).toEqual(84);
+			expect(basket.discountedValue()).toEqual(69);
+		});
+
+		it('returns the correct total and discounted value when voucher is invalid', function() {
+			basket.products = [product];
+			basket.applyVoucher("VOUCHER10");
+			expect(basket.totalValue()).toEqual(42);
+			expect(basket.discountedValue()).toEqual(42);
 		});
 	});
 });

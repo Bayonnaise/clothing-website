@@ -16,6 +16,12 @@ $(document).ready(function() {
 		shop.removeFromBasket(shop.basket.products[index].name);
 		refresh(shop);
 	});
+
+	$('#voucher-area').on('click', 'button', function() {
+		shop.basket.applyVoucher($('#voucher-box').val());
+		$('#voucher-box').val("");
+		updateBasket(shop.basket);
+	});
 });
 
 
@@ -52,7 +58,9 @@ function buildString(product) {
 function updateBasket(basket) {
 	$('#basket-list').empty();
 	$('#basket-count').text(basket.itemCount());
-	$('#basket-value').text(basket.totalValue());
+	$('#basket-value').removeClass('discounted').text(basket.totalValue());
+	$('#discount-value').text(basket.discountAmount());
+	$('#discount-text').addClass('hidden');
 
 	if (basket.itemCount() > 0) {
 		basket.products.forEach(function(item, index) {
@@ -62,5 +70,11 @@ function updateBasket(basket) {
 	} else {
 		var item = '<li>Empty</li>';
 		$(item).appendTo($('#basket-list'));
+	};
+
+	if(basket.discountAmount() > 0 && basket.totalValue() > basket.discountAmount()) {
+		$('#basket-value').addClass('discounted').text(basket.discountedValue());
+		$('#discount-text').removeClass('hidden');
+		$('#discount-value').text(basket.discountAmount());
 	};
 };

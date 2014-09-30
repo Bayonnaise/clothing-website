@@ -14,6 +14,7 @@
   <script type="text/javascript" src="src/Product.js"></script>
   <script type="text/javascript" src="src/Shop.js"></script>
   <script type="text/javascript" src="src/Basket.js"></script>
+  <script type="text/javascript" src="src/Voucher.js"></script>
   <script type="text/javascript" src="src/Scripts.js"></script>
 </head>
 
@@ -37,7 +38,11 @@
 			<h2 class='panel-heading'>Basket</h2>
 			<ul id="basket-list"></ul>
 			<div id='basket-footer' class='panel-footer'>
-				<span id='basket-count'>0</span> items, £<span id='basket-value'>0</span>
+				<span id='basket-count'>0</span> items, £<span id='basket-value'>0</span> <span id='discount-text' class='hidden'>(£<span id='discount-value'></span> off)</span>
+				<div id='voucher-area'>
+					<input id='voucher-box' type='text' name='voucher' placeholder='Enter code...'>
+					<button>Apply discount</button>
+				</div>
 			</div>
 		</aside>
 

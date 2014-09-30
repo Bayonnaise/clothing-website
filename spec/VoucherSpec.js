@@ -6,6 +6,11 @@ describe("The voucher", function() {
 	});
 
 	describe("when initialized", function() {
+		it("can be useless", function() {
+			voucher = new Voucher;
+			expect(voucher.discount).toEqual(0);
+		});
+
 		it("has a value", function() {
 			voucher = new Voucher(5);
 			expect(voucher.discount).toEqual(5);
