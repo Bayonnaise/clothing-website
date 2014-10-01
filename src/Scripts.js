@@ -57,12 +57,12 @@ function updateInventory(products, selection) {
 
 		if (inFilter(product, selection)) {
 			$(item).appendTo($('#inventory-list'));
-		};
+		}
 	});
 }
 
 function inFilter(product, selection) {
-	return (selection === "All" || product.category === selection)
+	return (selection === "All" || product.category === selection);
 }
 
 
@@ -86,7 +86,7 @@ function setValues(basket) {
 	$('#basket-value').text(basket.totalValue());
 	$('#discount-value').text(basket.discountAmount());
 	$('#discount-text').addClass('hidden');
-	$('#voucher-status').text('')
+	$('#voucher-status').text('');
 }
 
 function processDiscount(basket) {
