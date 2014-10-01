@@ -47,6 +47,7 @@ function updateInventory(products, selection) {
 	products.forEach(function(product, index) {
 		var template = $('#product-template').html();
 		Mustache.parse(template);
+		product.imageURL = getImageURL(product.category);
 		var item = Mustache.render(template, product);
 
 		if(product.inStock()) {
@@ -59,6 +60,10 @@ function updateInventory(products, selection) {
 			$(item).appendTo($('#inventory-list'));
 		}
 	});
+}
+
+function getImageURL(category) {
+	return category.replace("'s ", "-").toLowerCase().concat(".jpeg");
 }
 
 function inFilter(product, selection) {
