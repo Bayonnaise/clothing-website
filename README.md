@@ -18,13 +18,13 @@ The user stories are as follows: **(all complete)**
 - As a User I can apply a voucher to my shopping cart.
 - As a User I can view the total price for the products in my shopping cart with discounts applied.
 - As a User I am alerted when I apply an invalid voucher to my shopping cart.
-- As a User I am unable to Out of Stock products to the shopping cart.
+- As a User I am unable to add Out of Stock products to the shopping cart.
 
 ---
 
 ###Development
 
-The project was built using JavaScript, along with HTML, CSS and Twitter Bootstrap for basic styling. The site is responsive, with the product grid gradually going from three to two to one item per row. The basket resizes to always remain visible to the right size. 
+The project was built using JavaScript, along with HTML, CSS and Twitter Bootstrap for basic styling. The site is responsive, with the product grid gradually going from three to two to one item per row. The basket resizes to always remain visible. 
 
 The product database is mocked in a JavaScript constant, and I used Mustache templates to generate each item's HTML for both the product grid and the basket. Sending items to and from the basket is implemented using JQuery, and all totals and quantities update immediately. I also implemented a fully-working category filter at the top of the page.
 
