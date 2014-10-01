@@ -6,7 +6,7 @@
 Develop a responsive website for a clothing retailer, selling six categories of clothing and footwear. The page should display all available products and information, along with a shopping cart to which products can be added.
 
 There are also discount vouchers that can be redeemed, as follows:
-- `VOUCHER5` £5 off
+- `VOUCHER5`  £5 off
 - `VOUCHER10` £10 off when you spend over £50
 - `VOUCHER15` £15 off when you spend over £75 and buy at least one item of footwear
 
@@ -37,8 +37,8 @@ I implemented the following classes:
 With more time I would implement:
 - proper product images and a full database
 - the ability to apply multiple vouchers
-- a checkout button!
 - more professional styling
+- a checkout button!
 
 ####Tools used
 
