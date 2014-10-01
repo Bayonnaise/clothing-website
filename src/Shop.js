@@ -1,7 +1,7 @@
 function Shop() {
 	this.inventory = this.fillInventory();
 	this.basket = new Basket();
-};
+}
 
 Shop.prototype.PRODUCTS = "Almond Toe Court Shoes, Patent Black - Women's Footwear - £99.00 - 5\n" +
 													"Suede Shoes, Blue - Women's Footwear - £42.00 - 4\n" + 
@@ -34,7 +34,7 @@ Shop.prototype.getIndex = function(name) {
 		if(product.name === name) {
 			result = index;
 			return false;
-		};
+		}
 	});
 	return result;
 };
@@ -43,11 +43,11 @@ Shop.prototype.addToBasket = function(product) {
 	var index = this.getIndex(product.name);
 	if (this.inventory[index].removeOne()) {
 		this.basket.addProduct(product);
-	};
+	}
 };
 
 Shop.prototype.removeFromBasket = function(name) {
 	var index = this.getIndex(name);
 	this.basket.removeProduct(this.inventory[index]);
 	this.inventory[index].addOne();
-}
+};

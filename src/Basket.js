@@ -1,7 +1,7 @@
 function Basket () {
 	this.products = [];
-	this.voucher = new Voucher;
-};
+	this.voucher = new Voucher();
+}
 
 Basket.prototype.addProduct = function(product) {
 	this.products.push(product);
@@ -29,7 +29,7 @@ Basket.prototype.discountedValue = function() {
 		return this.totalValue() - this.discountAmount();
 	} else {
 		return this.totalValue();
-	};
+	}
 };
 
 Basket.prototype.discountAmount = function() {
@@ -37,7 +37,7 @@ Basket.prototype.discountAmount = function() {
 		return this.voucher.discount;
 	} else { 
 		return 0;
-	};
+	}
 };
 
 Basket.prototype.minimumSpendMet = function(minimumSpend) {
@@ -49,7 +49,7 @@ Basket.prototype.conditionMet = function(condition) {
 
 	var validItemCount = 0;
 	this.products.forEach(function(product) {
-		if (product.category.toLowerCase().search(condition[1])) { validItemCount++; };
+		if (product.category.toLowerCase().search(condition[1])) { validItemCount++; }
 	});
 
 	return (validItemCount >= condition[0]);
@@ -73,7 +73,7 @@ Basket.prototype.applyVoucher = function(voucherCode) {
 			break;
 		default:
 			break;
-	};
+	}
 
 	this.voucher = new Voucher(discount, minimumSpend, condition);
 };
