@@ -67,6 +67,7 @@ All of the JavaScript files are in the `src` folder, with their corresponding Ja
 ├── spec
 │   ├── BasketSpec.js
 │   ├── ProductSpec.js
+│   ├── ScriptsSpec.js
 │   ├── ShopSpec.js
 │   └── VoucherSpec.js
 └── src

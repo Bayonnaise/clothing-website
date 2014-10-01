@@ -63,7 +63,7 @@ function addToBasketLink(product, index) {
 	if(product.inStock()) {
 		return "<div><h5><a href='#' class='add-to-basket' data-pick='" + index + "'>Add to Basket</a><h5></div></div></li>";
 	} else {
-		return'<div>Out of stock</div></div></li>';
+		return '<div>Out of stock</div></div></li>';
 	}
 }
 
