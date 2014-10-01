@@ -7,7 +7,6 @@ $(document).ready(function() {
 	$('#inventory-list').on('click', 'a.add-to-basket', function(event) {
 		event.preventDefault();
 		var index = $(this).data('pick');
-
 		shop.addToBasket(shop.inventory[index]);
 		refresh(shop, selection);
 	});
@@ -15,7 +14,6 @@ $(document).ready(function() {
 	$('#basket-list').on('click', 'a.remove-from-basket', function(event) {
 		event.preventDefault();
 		var index = $(this).data('pick');
-		
 		shop.removeFromBasket(shop.basket.products[index].name);
 		refresh(shop, selection);
 	});
@@ -41,22 +39,17 @@ function refresh(shop, selection) {
 	updateBasket(shop.basket);
 }
 
+
 function updateInventory(products, selection) {
 	$('#inventory-list').empty();
 
 	products.forEach(function(product, index) {
+		product.imageURL = getImageURL(product.category);
 		var template = $('#product-template').html();
 		Mustache.parse(template);
-		product.imageURL = getImageURL(product.category);
-		var item = Mustache.render(template, product);
+		var item = Mustache.render(template, product) + addToBasketLink(product, index);
 
-		if(product.inStock()) {
-			item += ("<div><h5><a href='#' class='add-to-basket' data-pick='" + index + "'>Add to Basket</a><h5></div></div></li>");
-		} else {
-			item += '<div>Out of stock</div></div></li>';
-		}
-
-		if (inFilter(product, selection)) {
+		if (isInFilter(product, selection)) {
 			$(item).appendTo($('#inventory-list'));
 		}
 	});
@@ -66,13 +59,23 @@ function getImageURL(category) {
 	return category.replace("'s ", "-").toLowerCase().concat(".jpeg");
 }
 
-function inFilter(product, selection) {
-	return (selection === "All" || product.category === selection);
+function addToBasketLink(product, index) {
+	if(product.inStock()) {
+		return "<div><h5><a href='#' class='add-to-basket' data-pick='" + index + "'>Add to Basket</a><h5></div></div></li>";
+	} else {
+		return'<div>Out of stock</div></div></li>';
+	}
+}
+
+function isInFilter(product, selection) {
+	return (selection === "All" || selection === product.category);
 }
 
 
 function updateBasket(basket) {
 	$('#basket-list').empty();
+	$('#discount-text').addClass('hidden');
+	$('#voucher-status').text('');
 	setValues(basket);
 
 	basket.products.forEach(function(product, index) {
@@ -90,8 +93,6 @@ function setValues(basket) {
 	$('#basket-count').text(basket.itemCount());
 	$('#basket-value').text(basket.totalValue());
 	$('#discount-value').text(basket.discountAmount());
-	$('#discount-text').addClass('hidden');
-	$('#voucher-status').text('');
 }
 
 function processDiscount(basket) {
