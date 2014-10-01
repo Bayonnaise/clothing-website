@@ -5,6 +5,10 @@ html {
   box-sizing: inherit;
 }
 
+body {
+	padding-top: 70px;
+}
+
 .product-image {
 	padding: 0 25px;
 }
@@ -61,4 +65,9 @@ html {
 
 #voucher-area {
 	padding: 10px 0;
+}
+
+#voucher-status {
+	padding-top: 10px;
+	padding-left: 5px;
 }

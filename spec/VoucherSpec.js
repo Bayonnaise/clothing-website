@@ -1,10 +1,6 @@
 describe("The voucher", function() {
 	var voucher;
 
-	beforeEach(function() {
-		
-	});
-
 	describe("when initialized", function() {
 		it("can be useless", function() {
 			voucher = new Voucher;
@@ -27,6 +23,18 @@ describe("The voucher", function() {
 			expect(voucher.discount).toEqual(15);
 			expect(voucher.minimumSpend).toEqual(75);
 			expect(voucher.condition).toEqual([1, "footwear"]);
+		});
+	});
+
+	describe('voucher statuses', function() {
+		it('can report the status of an invalid voucher', function() {
+			voucher = new Voucher;
+			expect(voucher.report()).toEqual("Invalid code");
+		});
+
+		it('can report the status of a valid voucher', function() {
+			voucher = new Voucher(10, 50);
+			expect(voucher.report()).toEqual("Voucher applied");
 		});
 	});
 });

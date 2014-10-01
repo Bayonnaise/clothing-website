@@ -25,6 +25,7 @@ $(document).ready(function() {
 		shop.basket.applyVoucher($('#voucher-box').val());
 		$('#voucher-box').val("");
 		updateBasket(shop.basket);
+		$('#voucher-status').text(shop.basket.voucher.report());
 	});
 
 	$('.dropdown-menu li a').on('click', function(event) {
@@ -85,6 +86,7 @@ function setValues(basket) {
 	$('#basket-value').text(basket.totalValue());
 	$('#discount-value').text(basket.discountAmount());
 	$('#discount-text').addClass('hidden');
+	$('#voucher-status').text('')
 }
 
 function processDiscount(basket) {

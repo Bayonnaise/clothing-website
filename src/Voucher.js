@@ -3,3 +3,11 @@ function Voucher (discount, minimumSpend, condition) {
 	this.minimumSpend = minimumSpend || -1;
 	this.condition = condition || null;
 };
+
+Voucher.prototype.report = function() {
+	if (this.discount > 0) {
+		return "Voucher applied";
+	} else {
+		return "Invalid code";
+	}
+}
