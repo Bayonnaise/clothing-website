@@ -1,14 +1,15 @@
 $(document).ready(function() {
 	
 	var shop = new Shop();
-	refresh(shop);
+	var selection = "All";
+	refresh(shop, selection);
 
 	$('#inventory-list').on('click', 'a.add-to-basket', function(event) {
 		event.preventDefault();
 		var index = $(this).data('pick');
 
 		shop.addToBasket(shop.inventory[index]);
-		refresh(shop);
+		refresh(shop, selection);
 	});
 
 	$('#basket-list').on('click', 'a.remove-from-basket', function(event) {
@@ -16,7 +17,7 @@ $(document).ready(function() {
 		var index = $(this).data('pick');
 		
 		shop.removeFromBasket(shop.basket.products[index].name);
-		refresh(shop);
+		refresh(shop, selection);
 	});
 
 	$('#voucher-area').on('click', 'button', function(event) {
@@ -25,15 +26,21 @@ $(document).ready(function() {
 		$('#voucher-box').val("");
 		updateBasket(shop.basket);
 	});
+
+	$('.dropdown-menu li a').on('click', function(event) {
+		event.preventDefault();
+		selection = $(this).data('pick');
+		updateInventory(shop.inventory, selection);
+	});
 });
 
 
-function refresh(shop) {
-	updateInventory(shop.inventory);
+function refresh(shop, selection) {
+	updateInventory(shop.inventory, selection);
 	updateBasket(shop.basket);
 }
 
-function updateInventory(products) {
+function updateInventory(products, selection) {
 	$('#inventory-list').empty();
 
 	products.forEach(function(product, index) {
@@ -47,9 +54,16 @@ function updateInventory(products) {
 			item += '<div>Out of stock</div></div></li>';
 		}
 
-		$(item).appendTo($('#inventory-list'));
+		if (inFilter(product, selection)) {
+			$(item).appendTo($('#inventory-list'));
+		};
 	});
 }
+
+function inFilter(product, selection) {
+	return (selection === "All" || product.category === selection)
+}
+
 
 function updateBasket(basket) {
 	$('#basket-list').empty();
