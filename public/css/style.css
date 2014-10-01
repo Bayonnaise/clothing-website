@@ -6,7 +6,22 @@ html {
 }
 
 body {
+	background-color: #C0DEED;
 	padding-top: 70px;
+}
+
+.navbar-default {
+	background-color: white;
+	border-bottom: 1px solid grey;
+}
+
+.panel-default {
+	border: 1px solid grey;
+}
+
+.product-box .panel-heading {
+	min-height: 48px;
+	padding: 5px;
 }
 
 .product-image {
@@ -16,11 +31,6 @@ body {
 .product-image img{
 	height: 100%;
 	width: 100%;
-}
-
-.product-box .panel-heading {
-	min-height: 48px;
-	padding: 5px;
 }
 
 #basket {
