@@ -24,6 +24,10 @@ body {
 	padding: 5px;
 }
 
+.product-box .panel-title {
+	font-family: Verdana, Geneva, sans-serif;
+}
+
 .product-image {
 	padding: 0 25px;
 }
