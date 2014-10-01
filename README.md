@@ -24,9 +24,11 @@ The user stories are as follows: **(all complete)**
 
 ###Development
 
-The project was built using JavaScript and HTML, with the product database mocked in a JS constant. Sending items to and from the basket is done using JQuery, and all totals and quantities update immediately. I also implemented a category filter at the top of the page.
+The project was built using JavaScript, along with HTML, CSS and Twitter Bootstrap for basic styling. The site is responsive, with the product grid gradually going from three to two to one item per row. The basket resizes to always remain visible to the right size. 
 
-When you enter a valid voucher code it is added to the basket, but the discount is only applied when the voucher's conditions are met. If removing an item means those conditions are no longer met, the discount will be removed, but the voucher remains in place. Just add more items to see the discount return.
+The product database is mocked in a JavaScript constant, and I used Mustache templates to generate each item's HTML for both the product grid and the basket. Sending items to and from the basket is implemented using JQuery, and all totals and quantities update immediately. I also implemented a fully-working category filter at the top of the page.
+
+When you enter a valid voucher code it is added to the basket, but the discount is only applied when the voucher's conditions are met. If removing an item means those conditions are no longer met, the discount will be removed, but the voucher remains in place. Just add more items again to see the discount return.
 
 I implemented the following classes:
 - `Product.js` contains the product name, price, category and quantity.
@@ -46,7 +48,7 @@ JavaScript, JQuery, Jasmine, Mustache, HTML, CSS and Twitter Bootstrap.
 
 ####Code layout
 
-The basic layout of the page sits in `index.html`, which also (for now at least) includes two Mustache templates for rendering the individual shop products and basket items. CSS files and product images are in the `public` folder.
+The basic layout of the page sits in `index.html`, which also (for now at least) includes the two Mustache templates. CSS files and product images are in the `public` folder.
 
 All of the JavaScript files are in the `src` folder, with their corresponding Jasmine tests inside `spec`. The JQuery scripts are all in `Scripts.js`.
 
@@ -86,7 +88,7 @@ You have two options.
 
 **A: Download the repo**
 
-[Download the full repo as a zip file.](https://github.com/Bayonnaise/clothing-website/archive/master.zip)
+[Download the full repo as a zip file.](https://github.com/Bayonnaise/clothing-website/archive/master.zip) Extract the contents before opening the relevant HTML files, as described below.
 
 **B: Clone the repo**
 
